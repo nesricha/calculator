@@ -45,12 +45,12 @@ export default function Home() {
     }
   }
 
-  if (typeof document !== "undefined") {
-    document.addEventListener("keydown", ev => {
-      (calculator.includes(ev.key) || keybAlternatives.includes(ev.key)) && eventHandler(ev.key)
-      ev.stopPropagation()
-    })
-  }
+  // if (typeof document !== "undefined") {
+  //   document.addEventListener("keydown", ev => {
+  //     (calculator.includes(ev.key) || keybAlternatives.includes(ev.key)) && eventHandler(ev.key)
+  //     ev.stopPropagation()
+  //   })
+  // }
 
   useEffect(() => {
     setExp([`${res}`])
