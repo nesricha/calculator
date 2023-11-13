@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const calculator = ["C", "<-", "(", ")", "1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "*", "/", "0", ".", "="]
+  const calculator = ["C", "<-", "(", ")", "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "*", "/", "0", ".", "="]
   const keybAlternatives = ["Backspace", "Delete", "Enter"]
   const [exp, setExp] = useState<string[]>([])
-  const [res, setRes] = useState<number | undefined>(0)
+  const [res, setRes] = useState<number>(0)
 
   const calcRes = () => {
     let expression = exp.join("")
@@ -36,11 +36,11 @@ export default function Home() {
           break;
 
         default:
-          (exp[0] !== "0" && exp[0] !== "undefined") ? setExp([...exp, key]) : setExp([`${key}`])
+          (/^[1-9]*$/.test(exp[0]) || exp[0] === "(") ? setExp([...exp, key]) : setExp([`${key}`])
           break
       }
     } catch (err) {
-      setRes(undefined)
+      setRes(NaN)
       console.log(`Invalid expression. More details: ${JSON.stringify({ err }, null)}`)
     }
   }
@@ -58,7 +58,10 @@ export default function Home() {
 
   return (
     <main className='bg-yellow-50 py-10 h-[100vh]'>
-      <p className='text-center p-10 text-5xl font-bold mb-8'>CALCULATOR</p>
+      <div className='text-center p-8 mb-16 border-y-4'>
+      <p className='pt-5 text-5xl font-bold'>CALCULATOR</p>
+      <p className='pt-4 text-xl'>Let's do some math!</p>
+      </div>
       <div className='mx-auto w-4/12 min-w-[300px] max-w-[400px] bg-teal-800 text-white rounded-2xl p-2'>
         <div className='text-right m-4 mb-6 p-4 bg-zinc-400 rounded-lg border-8 border-b-4 border-teal-900'>
           <p className='text-xl'>
