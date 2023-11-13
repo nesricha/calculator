@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const calculator = ["C", "<-", "(", ")", "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "*", "/", "0", ".", "="]
+  const calculator = ["C", "<-", "(", ")", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "/", "0", ".", "="]
   const keybAlternatives = ["Backspace", "Delete", "Enter"]
   const [exp, setExp] = useState<string[]>([])
   const [res, setRes] = useState<number>(0)
