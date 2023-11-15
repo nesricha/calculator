@@ -62,7 +62,7 @@ export default function CalcComp() {
           break;
 
         default:
-          /^-?[1-9]+$/.test(exp[0]) || firstPress.includes(exp[0])
+          /^-?[1-9]\d*$/.test(exp[0]) || firstPress.includes(exp[0])
             ? setExp([...exp, key])
             : setExp([`${key}`]);
           break;
