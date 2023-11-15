@@ -11,9 +11,10 @@ export default function KeyboardComp(prop: Prop) {
             key={key}
             href="#"
             className={`${
-              /^[0-9]*$/.test(key) &&
-              `bg-[#3b82f6] hover:bg-[#2563eb] border-b-[#1d4ed8]`
-            } mx-auto rounded-lg w-10/12 bg-sky-500 m-3 px-3 py-1.5 hover:bg-sky-600 border-b-4 active:border-b-0 active:border-t-4 active:border-t-teal-800 border-sky-700 transition-all `}
+              /^[0-9]*$/.test(key)
+                ? `bg-blue-500 hover:bg-blue-600 border-b-4 border-blue-700`
+                : `bg-sky-500 hover:bg-sky-600 border-b-4 border-sky-700`
+            } mx-auto rounded-lg w-10/12 m-3 px-3 py-1.5 transition-all active:border-b-0 active:border-t-4 active:border-teal-800`}
             onClick={(e) => {
               e.preventDefault();
               prop.eventHandler(key);

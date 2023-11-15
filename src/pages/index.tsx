@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="bg-yellow-50 py-10 h-[100vh]">
+    <main className="bg-yellow-50 py-10">
       <HeaderComp />
       <CalcComp />
     </main>
