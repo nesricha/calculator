@@ -26,15 +26,17 @@ export default function CalcComp() {
     "=",
   ];
   // const keybAlternatives = ["Backspace", "Delete", "Enter"]
+  const firstPress = ["(", ".", "-"];
   const [exp, setExp] = useState<string[]>([]);
   const [res, setRes] = useState<number>(0);
 
   const calcRes = () => {
     let expression = exp.join("");
     let result = new Function("return " + expression);
+    let newRes = result();
     if (exp.length) {
-      setRes(result());
-      setExp([`${res}`]);
+      setRes(newRes);
+      setExp([`${newRes}`]);
     } else {
       console.log("Invalid expression");
     }
@@ -60,13 +62,14 @@ export default function CalcComp() {
           break;
 
         default:
-          /^[1-9]*$/.test(exp[0]) || exp[0] === "(" || exp[0] === "."
+          /^-?[1-9]+$/.test(exp[0]) || firstPress.includes(exp[0])
             ? setExp([...exp, key])
             : setExp([`${key}`]);
           break;
       }
     } catch (err) {
       setRes(NaN);
+      setExp(["Syntax ERROR"])
       console.log(
         `Invalid expression. More details: ${JSON.stringify({ err }, null)}`
       );
