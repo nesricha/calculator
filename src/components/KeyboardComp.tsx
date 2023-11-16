@@ -4,7 +4,7 @@ type Prop = {
 };
 export default function KeyboardComp(prop: Prop) {
   return (
-    <div className="mx-auto text-center font-bold text-lg">
+    <div className="mx-auto text-lg font-bold text-center">
       <div className="grid grid-cols-4 mx-auto">
         {prop.calculator.map((key) => (
           <a

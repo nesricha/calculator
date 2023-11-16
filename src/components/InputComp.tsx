@@ -5,7 +5,7 @@ type Prop = {
 
 export default function InputComp(prop: Prop) {
   return (
-    <div className="text-right m-4 mb-6 p-4 bg-zinc-400 rounded-lg border-8 border-b-4 border-teal-900">
+    <div className="p-4 m-4 mb-6 text-right border-8 border-b-4 border-teal-900 rounded-lg bg-zinc-400">
       <p className="text-xl truncate">
         {!prop.exp.length ? `${prop.res}` : `${prop.exp.join("")}`}
       </p>
